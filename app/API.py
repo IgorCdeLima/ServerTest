@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
-import os
+from pathlib import Path
 
 app = FastAPI()
 
+BASE_DIR = Path(__file__).resolve().parent
+
 @app.get("/")
 def home():
-    print("Diretório atual:", os.getcwd())
-    print("Arquivos:", os.listdir())
-    return FileResponse(".app/index.html")
+    return FileResponse(BASE_DIR / "index.html")
