@@ -1,7 +1,8 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def init():
-    return {"message": "hello World"}
+    return FileResponse("index.html")
