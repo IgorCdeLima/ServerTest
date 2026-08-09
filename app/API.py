@@ -8,4 +8,4 @@ app = FastAPI()
 def home():
     print("Diretório atual:", os.getcwd())
     print("Arquivos:", os.listdir())
-    return FileResponse("index.html")
+    return FileResponse(".app/index.html")
